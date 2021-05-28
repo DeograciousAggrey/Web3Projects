@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="./node_modules/web3/dist/web3.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            //This statement is executed if you are using metamask
+
+            async function enableAccounts() {
+                await ethereum.enable()
+                .then((account) => {
+                    alert ("Account: " + account + "\n" + "Provider Name: " + web3.currentProvider.constructor.name);
+                })
+            }
+            enableAccounts();
+        }else {
+            //Set the provider you want from the Web3.providers
+            web3 = new Web3( new Web3.providers.HttpProvider("http://localhost:8545"));
+            alert ("Account: " + web3.eth.accounts[0] + "\n" + "Provider Name: " + web3.currentProvider.constructor.name);
+
+        }
+    </script>
+</body>
+</html>
