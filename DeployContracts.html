@@ -21,7 +21,7 @@
             enableAccounts();
         } else {
             //Set the provider you want from the Web3.providers
-            web3 = new Web3 (new Web3.providers.HttpProviders("http://localhost:8545"));
+            web3 = new Web3 (new Web3.providers.HttpProvider("http://localhost:8545"));
             account = web3.eth.accounts[0];    
         }
 
