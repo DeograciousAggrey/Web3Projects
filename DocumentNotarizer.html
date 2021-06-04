@@ -73,24 +73,25 @@
 ];
 
 var contract = web3.eth.contract(abi);
-var notarizer = contract.at('0x044063558d41F47cC9e1CE4B8637638a278D30aA');
-
+var notarizer = contract.at('0x444bd0508Aa1b4a4880792c8b3B087eD9F7fD9AD');
 
 $("#btnNotarize").click(function() {
- notarizer.notarize($("#document1").val(),
- (error, result) => {
- $("#result").html(result);
- });
- });
- $("#btnCheck").click(function() {
- notarizer.checkDocument($("#document2").val(),
- (error, result) => {
- if(!error) {
- $("#result").html(result.toString());
- } else
- console.error(error);
- });
- });
+    notarizer.notarize($("#document1").val(),
+    (error, result) => {
+        $("#result").html(result);
+    });
+});
+
+$("#btnCheck").click(function() {
+    notarizer.checkDocument($("#document2").val(),
+    (error, result) => {
+        if(!error) {
+            $("#result").html(result.toString());
+        } else {
+            console.error(error);
+        }
+    });
+});
 
 
 
